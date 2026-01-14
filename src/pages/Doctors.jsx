@@ -6,38 +6,45 @@ const doctors = [
     name: "Dr. Rahul Sharma",
     speciality: "Cardiologist",
     experience: "15 years",
-    img: "/images/dr1.png",
-    description: "Expert in heart diseases and cardiac surgeries with modern techniques."
+    img: process.env.PUBLIC_URL + "/images/dr1.png",
+    description:
+      "Expert in heart diseases and cardiac surgeries with modern techniques.",
   },
   {
     name: "Dr. Neha Verma",
     speciality: "Dermatologist",
     experience: "12 years",
-    img: "/images/dr2.png",
-    description: "Specializes in skin treatments, cosmetic dermatology, and laser therapy."
+    img: process.env.PUBLIC_URL + "/images/dr2.png",
+    description:
+      "Specializes in skin treatments, cosmetic dermatology, and laser therapy.",
   },
   {
     name: "Dr. Amit Singh",
     speciality: "Orthopedic Surgeon",
     experience: "10 years",
-    img: "/images/dr1.png",
-    description: "Experienced in joint replacement, fracture treatment, and sports injuries."
+    img: process.env.PUBLIC_URL + "/images/dr1.png",
+    description:
+      "Experienced in joint replacement, fracture treatment, and sports injuries.",
   },
   {
     name: "Dr. Priya Jain",
     speciality: "Pediatrician",
     experience: "8 years",
-    img: "/images/dr2.png",
-    description: "Providing compassionate care for children and infants with personalized treatment."
-  }
+    img: process.env.PUBLIC_URL + "/images/dr2.png",
+    description:
+      "Providing compassionate care for children and infants with personalized treatment.",
+  },
 ];
 
 const Doctors = () => {
   return (
     <section className="doctors-section">
       <h1>Meet Our Experts</h1>
-      <p>Our highly qualified doctors are dedicated to providing the best healthcare services.</p>
-      
+      <p>
+        Our highly qualified doctors are dedicated to providing the best
+        healthcare services.
+      </p>
+
       <div className="doctor-grid">
         {doctors.map((doc, index) => (
           <div className="doctor-card" key={index}>

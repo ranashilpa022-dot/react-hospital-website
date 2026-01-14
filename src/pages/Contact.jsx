@@ -8,19 +8,33 @@ const Contact = () => {
     message: "",
   });
 
+  // input change handle
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
+  // form submit handle
   const handleSubmit = (e) => {
     e.preventDefault();
+
     alert("✅ Thank you! Our team will contact you shortly.");
-    setFormData({ name: "", email: "", message: "" });
+
+    // clear form
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (
     <div className="contact-page">
-      {/* Header */}
+
+      {/* ================= HEADER ================= */}
       <div className="contact-header">
         <h1>Contact City Hospital</h1>
         <p>
@@ -29,40 +43,41 @@ const Contact = () => {
         </p>
       </div>
 
-      {/* Main Content */}
+      {/* ================= MAIN CONTENT ================= */}
       <div className="contact-container">
-        {/* Left: Contact Info */}
+
+        {/* LEFT : CONTACT INFO */}
         <div className="contact-info">
           <h2>Get in Touch</h2>
 
           <p>
-            <strong>📍 Address:</strong>  
+            <strong>📍 Address:</strong>
             <br />
             City Hospital, Jabalpur, Madhya Pradesh
           </p>
 
           <p>
-            <strong>📞 Phone:</strong>  
+            <strong>📞 Phone:</strong>
             <br />
             +91 7879448719
           </p>
 
           <p>
-            <strong>📧 Email:</strong>  
+            <strong>📧 Email:</strong>
             <br />
             info@cityhospital.com
           </p>
 
           <p>
-            <strong>⏰ Working Hours:</strong>  
+            <strong>⏰ Working Hours:</strong>
             <br />
-            OPD: 9:00 AM – 8:00 PM  
+            OPD: 9:00 AM – 8:00 PM
             <br />
             Emergency: 24/7
           </p>
         </div>
 
-        {/* Right: Contact Form */}
+        {/* RIGHT : CONTACT FORM */}
         <form className="contact-form" onSubmit={handleSubmit}>
           <h2>Send Us a Message</h2>
 
@@ -90,10 +105,11 @@ const Contact = () => {
             value={formData.message}
             onChange={handleChange}
             required
-          />
+          ></textarea>
 
           <button type="submit">Send Message</button>
         </form>
+
       </div>
     </div>
   );
