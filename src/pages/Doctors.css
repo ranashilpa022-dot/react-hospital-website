@@ -1,0 +1,158 @@
+.doctors-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* ================= HEADER ================= */
+.doctors-section h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.doctors-section p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #555;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================= GRID ================= */
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* ================= CARD ================= */
+.doctor-card {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.doctor-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.2);
+}
+
+/* ================= IMAGE ================= */
+.doctor-card img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 4px solid #0d6efd;
+}
+
+/* ================= TEXT ================= */
+.doctor-card h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.doctor-card .speciality {
+  font-weight: bold;
+  color: #0d6efd;
+  margin-bottom: 5px;
+}
+
+.doctor-card .experience {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.doctor-card .description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+/* ================= BUTTON ================= */
+.doctor-card .btn-primary {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.doctor-card .btn-primary:hover {
+  background-color: #084298;
+  transform: translateY(-3px);
+}
+
+/* =================================================
+   RESPONSIVE BREAKPOINTS
+================================================= */
+
+/* Large Tablets / Small Laptops */
+@media (max-width: 1200px) {
+  .doctor-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .doctor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doctors-section h1 {
+    font-size: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .doctor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .doctors-section h1 {
+    font-size: 28px;
+  }
+
+  .doctors-section p {
+    font-size: 16px;
+  }
+
+  .doctor-card {
+    max-width: 400px;
+    margin: auto;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .doctors-section {
+    padding: 40px 15px;
+  }
+
+  .doctor-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .doctor-card h3 {
+    font-size: 18px;
+  }
+
+  .doctor-card .description {
+    font-size: 13px;
+  }
+}

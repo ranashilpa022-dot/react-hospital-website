@@ -1,0 +1,32 @@
+.appointment {
+  padding: 40px;
+  text-align: center;
+}
+
+.appointment-form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-form input,
+.appointment-form select {
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+.appointment-form button {
+  padding: 12px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+@media (max-width: 600px) {
+  .appointment-form {
+    width: 90%;
+  }
+}

@@ -1,0 +1,410 @@
+/* ================= GLOBAL ================= */
+.home-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.section-light {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.section-dark {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+.section-subtitle {
+  max-width: 700px;
+  margin: 10px auto 40px;
+  font-size: 16px;
+  opacity: 0.9;
+  text-align: center;
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+
+  /* BACKGROUND FIX */
+  background-image: url(/public/images/image.png);
+  background-size: cover;        /* image stretch, no repeat */
+  background-position: center;   /* center align */
+  background-repeat: no-repeat;  /* ❌ repeat band */
+
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  color: #fff;
+}
+
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  padding: 0 40px;
+  color: #fff;
+}
+
+.hero-tagline {
+  display: inline-block;
+  background: #0d6efd;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.hero-content h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  background: #0d6efd;
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: #084298;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 6px;
+  border: 2px solid #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #fff;
+  color: #0d6efd;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.hero-stats h3 {
+  font-size: 28px;
+}
+
+.hero-stats p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* ================= SERVICES ================= */
+.services {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.service-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+}
+
+/* ================= DOCTORS ================= */
+.doctors {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 40px auto;
+}
+
+.doctor-card {
+  background: #fff;
+  color: #333;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.doctor-card span {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ================= ABOUT ================= */
+.about {
+  padding: 70px 20px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-highlights {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.about-highlights li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* ================= QUICK CONTACT ================= */
+.quick-contact {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+.contact-card {
+  background: #fff;
+  color: #333;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.contact-card h3 {
+  margin-bottom: 10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 36px;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+
+/* ================= LARGE SCREENS ================= */
+@media (min-width: 1200px) {
+  .hero-content {
+    max-width: 750px;
+  }
+
+  .hero-content h1 {
+    font-size: 56px;
+  }
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  .hero {
+    padding: 0 30px;
+  }
+
+  .hero-content {
+    padding: 0 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 42px;
+  }
+
+  .hero-stats {
+    gap: 25px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text h2 {
+    font-size: 32px;
+  }
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  /* HERO */
+  .hero {
+    min-height: auto;
+    padding: 100px 20px 60px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    padding: 0;
+    text-align: center;
+  }
+
+  .hero-tagline {
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .hero-buttons button {
+    width: 100%;
+  }
+
+  .hero-stats {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 50px 15px;
+  }
+
+  /* DOCTORS */
+  .doctors {
+    padding: 50px 15px;
+  }
+
+  /* ABOUT */
+  .about {
+    padding: 50px 15px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  /* QUICK CONTACT */
+  .quick-contact {
+    padding: 50px 15px;
+  }
+}
+
+/* ================= SMALL MOBILE ================= */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .hero-stats h3 {
+    font-size: 22px;
+  }
+
+  .section-subtitle {
+    font-size: 14px;
+  }
+
+  .service-card,
+  .doctor-card,
+  .contact-card {
+    padding: 20px;
+  }
+}
+

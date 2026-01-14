@@ -1,0 +1,43 @@
+.contact-page {
+  padding: 60px 20px;
+  background: #f4f8fc;
+}
+
+/* ================= HEADER ================= */
+.contact-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-header h1 {
+  font-size: 36px;
+  color: #0d6efd;
+  margin-bottom: 10px;
+}
+
+.contact-header p {
+  color: #555;
+  max-width: 750px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* ================= LAYOUT ================= */
+.contact-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+  align-items: stretch;
+}
+
+/* ================= CONTACT INFO ================= */
+.contact-info {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+

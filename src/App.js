@@ -1,25 +1,62 @@
-import logo from './logo.svg';
-import './App.css';
+// import React from "react";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Navbar from "./components/Navbar";
+// import Home from "./pages/Home";
+// import About from "./pages/About";
+// import Doctors from "./pages/Doctors";
+// import Contact from "./pages/Contact";
+// import Appointment from "./pages/Appointment";
+// import Footer from "./components/Footer";
+
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <Navbar />
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/doctors" element={<Doctors />} />
+//         <Route path="/contact" element={<Contact />} />
+//         <Route path="/appointment" element={<Appointment />} />
+        
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
+
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Doctors from "./pages/Doctors";
+import Contact from "./pages/Contact";
+import Appointment from "./pages/Appointment";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* Navbar har page ke top me */}
+      <Navbar />
+
+      {/* Page Routes */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/doctors" element={<Doctors />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/appointment" element={<Appointment />} />
+      </Routes>
+
+      {/* Footer har page ke neeche */}
+      <Footer />
+    </BrowserRouter>
   );
 }
 
 export default App;
+
