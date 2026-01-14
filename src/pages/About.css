@@ -163,3 +163,57 @@
     font-size: 15px;
   }
 }
+
+/* ===== Page base ===== */
+.about-text {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: slideLeft 0.9s ease forwards;
+}
+
+.about-image {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: slideRight 0.9s ease forwards;
+  animation-delay: 0.3s;
+}
+.about-image img {
+  transition: transform 0.4s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.05);
+}
+
+
+.about-highlights div {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.about-highlights div:nth-child(1) { animation-delay: 0.3s; }
+.about-highlights div:nth-child(2) { animation-delay: 0.5s; }
+.about-highlights div:nth-child(3) { animation-delay: 0.7s; }
+
+/* ===== Animations ===== */
+@keyframes slideLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
