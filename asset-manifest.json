@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-hospital-website/static/css/main.84224f01.css",
-    "main.js": "/react-hospital-website/static/js/main.ed793c8a.js",
+    "main.css": "/react-hospital-website/static/css/main.221fbf1f.css",
+    "main.js": "/react-hospital-website/static/js/main.093bdc17.js",
     "static/js/453.3b0bde9f.chunk.js": "/react-hospital-website/static/js/453.3b0bde9f.chunk.js",
     "static/media/image.png": "/react-hospital-website/static/media/image.adec46fb2deb6efc4ae0.png",
     "index.html": "/react-hospital-website/index.html",
-    "main.84224f01.css.map": "/react-hospital-website/static/css/main.84224f01.css.map",
-    "main.ed793c8a.js.map": "/react-hospital-website/static/js/main.ed793c8a.js.map",
+    "main.221fbf1f.css.map": "/react-hospital-website/static/css/main.221fbf1f.css.map",
+    "main.093bdc17.js.map": "/react-hospital-website/static/js/main.093bdc17.js.map",
     "453.3b0bde9f.chunk.js.map": "/react-hospital-website/static/js/453.3b0bde9f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.84224f01.css",
-    "static/js/main.ed793c8a.js"
+    "static/css/main.221fbf1f.css",
+    "static/js/main.093bdc17.js"
   ]
 }
