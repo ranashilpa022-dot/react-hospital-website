@@ -1,8 +1,8 @@
-// animation test commit
-// force github pages rebuild
+// App.js
 
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { HashRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -12,8 +12,13 @@ import Appointment from "./pages/Appointment";
 import Footer from "./components/Footer";
 
 function App() {
+  // ✅ Page load hote hi scroll top fix
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <BrowserRouter>
+    <HashRouter>
       {/* Navbar har page ke top me */}
       <Navbar />
 
@@ -28,9 +33,8 @@ function App() {
 
       {/* Footer har page ke neeche */}
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
 export default App;
-
