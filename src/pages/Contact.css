@@ -212,3 +212,10 @@
   transform: translateY(-3px);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
+
+.field-error {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}

@@ -1,42 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Doctors.css";
 
-const doctors = [
-  {
-    name: "Dr. Rahul Sharma",
-    speciality: "Cardiologist",
-    experience: "15 years",
-    img: process.env.PUBLIC_URL + "/images/dr1.png",
-    description:
-      "Expert in heart diseases and cardiac surgeries with modern techniques.",
-  },
-  {
-    name: "Dr. Neha Verma",
-    speciality: "Dermatologist",
-    experience: "12 years",
-    img: process.env.PUBLIC_URL + "/images/dr2.png",
-    description:
-      "Specializes in skin treatments, cosmetic dermatology, and laser therapy.",
-  },
-  {
-    name: "Dr. Amit Singh",
-    speciality: "Orthopedic Surgeon",
-    experience: "10 years",
-    img: process.env.PUBLIC_URL + "/images/dr1.png",
-    description:
-      "Experienced in joint replacement, fracture treatment, and sports injuries.",
-  },
-  {
-    name: "Dr. Priya Jain",
-    speciality: "Pediatrician",
-    experience: "8 years",
-    img: process.env.PUBLIC_URL + "/images/dr2.png",
-    description:
-      "Providing compassionate care for children and infants with personalized treatment.",
-  },
-];
-
 const Doctors = () => {
+  const [doctors, setDoctors] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+    const fetchDoctors = async () => {
+      try {
+        const res = await fetch('/api/doctors');
+        if (!res.ok) throw new Error('Failed to load doctors');
+        const data = await res.json();
+        if (mounted) setDoctors(data);
+      } catch (err) {
+        if (mounted) setError(err.message || 'Error');
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    };
+    fetchDoctors();
+    return () => (mounted = false);
+  }, []);
+
+  if (loading) return (<section className="doctors-section"><p>Loading doctors...</p></section>);
+  if (error) return (<section className="doctors-section"><p>Error: {error}</p></section>);
+
   return (
     <section className="doctors-section">
       <h1>Meet Our Experts</h1>
@@ -46,14 +37,17 @@ const Doctors = () => {
       </p>
 
       <div className="doctor-grid">
-        {doctors.map((doc, index) => (
-          <div className="doctor-card" key={index}>
-            <img src={doc.img} alt={doc.name} />
+        {doctors.map((doc) => (
+          <div className="doctor-card" key={doc._id || doc.name}>
+            <img src={doc.img ? process.env.PUBLIC_URL + doc.img : process.env.PUBLIC_URL + '/images/dr1.png'} alt={doc.name} />
             <h3>{doc.name}</h3>
+            {doc.qualifications && <p className="qual">{doc.qualifications}</p>}
             <p className="speciality">{doc.speciality}</p>
             <p className="experience">{doc.experience}</p>
             <p className="description">{doc.description}</p>
-            <button className="btn-primary">Book Appointment</button>
+            <Link to="/appointment">
+              <button className="btn-primary">Book Appointment</button>
+            </Link>
           </div>
         ))}
       </div>

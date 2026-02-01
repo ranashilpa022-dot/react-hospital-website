@@ -20,16 +20,31 @@ const Contact = () => {
   // form submit handle
   const handleSubmit = (e) => {
     e.preventDefault();
+    const errors = {};
+    if (!formData.name || formData.name.length < 2) errors.name = 'Please enter your name';
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(formData.email)) errors.email = 'Invalid email';
+    if (!formData.message || formData.message.length < 10) errors.message = 'Message is too short';
+    setErrors(errors);
+    if (Object.keys(errors).length > 0) return;
 
-    alert("✅ Thank you! Our team will contact you shortly.");
-
-    // clear form
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    (async () => {
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+        if (!res.ok) throw new Error('Failed');
+        alert('✅ Thank you! Our team will contact you shortly.');
+        setFormData({ name: '', email: '', message: '' });
+      } catch (err) {
+        alert('Failed to send message — try again later');
+      }
+    })();
   };
+
+  const [errors, setErrors] = useState({});
 
   return (
     <div className="contact-page">
@@ -98,6 +113,7 @@ const Contact = () => {
             onChange={handleChange}
             required
           />
+          {errors.email && <div className="field-error">{errors.email}</div>}
 
           <textarea
             name="message"
@@ -106,6 +122,7 @@ const Contact = () => {
             onChange={handleChange}
             required
           ></textarea>
+          {errors.message && <div className="field-error">{errors.message}</div>}
 
           <button type="submit">Send Message</button>
         </form>

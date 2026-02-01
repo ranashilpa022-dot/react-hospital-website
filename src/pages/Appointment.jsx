@@ -33,31 +33,51 @@ const Appointment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // client-side validation
+    const errors = {};
+    if (!formData.name || formData.name.length < 2) errors.name = 'Please enter your name';
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(formData.email)) errors.email = 'Invalid email';
+    const phoneRe = /^[0-9+\-()\s]{7,20}$/;
+    if (!phoneRe.test(formData.phone)) errors.phone = 'Invalid phone';
+    if (!formData.doctor) errors.doctor = 'Select a doctor';
+    if (!formData.date) errors.date = 'Select a date';
 
-    const existingAppointments =
-      JSON.parse(localStorage.getItem("appointments")) || [];
+    setFormErrors(errors);
+    if (Object.keys(errors).length > 0) return;
 
-    const newAppointment = {
-      id: Date.now(),
-      ...formData,
-    };
-
-    localStorage.setItem(
-      "appointments",
-      JSON.stringify([...existingAppointments, newAppointment])
-    );
-
-    alert("✅ Appointment booked successfully!");
-
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      doctor: "",
-      date: "",
-      problem: "",
-    });
+    // submit to backend
+    (async () => {
+      try {
+        const res = await fetch('/api/appointments', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            doctorId: null,
+            date: formData.date,
+            message: formData.problem,
+          }),
+        });
+        if (!res.ok) throw new Error('Failed to book appointment');
+        alert('✅ Appointment booked successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          doctor: '',
+          date: '',
+          problem: '',
+        });
+      } catch (err) {
+        alert('Failed to book appointment — try again later');
+      }
+    })();
   };
+
+  const [formErrors, setFormErrors] = React.useState({});
 
   return (
     <div className="appointment">
@@ -81,6 +101,7 @@ const Appointment = () => {
           onChange={handleChange}
           required
         />
+        {formErrors.email && <div className="field-error">{formErrors.email}</div>}
 
         <input
           type="tel"
@@ -90,6 +111,7 @@ const Appointment = () => {
           onChange={handleChange}
           required
         />
+        {formErrors.phone && <div className="field-error">{formErrors.phone}</div>}
 
         <select
           name="doctor"
@@ -102,6 +124,7 @@ const Appointment = () => {
           <option>Dr. Neha Verma</option>
           <option>Dr. Amit Singh</option>
         </select>
+        {formErrors.doctor && <div className="field-error">{formErrors.doctor}</div>}
 
         <input
           type="date"
@@ -111,6 +134,7 @@ const Appointment = () => {
           onChange={handleChange}
           required
         />
+        {formErrors.date && <div className="field-error">{formErrors.date}</div>}
 
         <textarea
           name="problem"
